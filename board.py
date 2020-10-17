@@ -1,9 +1,6 @@
 import pygame
 import square
 
-import socket
-import threading
-
 
 class Board:
     __winning_positions = [[0, 1, 2], [3, 4, 5], [6, 7, 8],
@@ -11,11 +8,11 @@ class Board:
                            [0, 4, 8], [2, 4, 6]]
 
     def __init__(self, window, player):
-        self.__board = [square.Square(window, (25, 25, 150, 150)), square.Square(window, (200, 25, 150, 150)),
-                        square.Square(window, (375, 25, 150, 150)), square.Square(window, (25, 200, 150, 150)),
-                        square.Square(window, (200, 200, 150, 150)), square.Square(window, (375, 200, 150, 150)),
-                        square.Square(window, (25, 375, 150, 150)), square.Square(window, (200, 375, 150, 150)),
-                        square.Square(window, (375, 375, 150, 150))]
+        self.__board = [square.Square(window, (25, 55, 150, 150)), square.Square(window, (200, 55, 150, 150)),
+                        square.Square(window, (375, 55, 150, 150)), square.Square(window, (25, 230, 150, 150)),
+                        square.Square(window, (200, 230, 150, 150)), square.Square(window, (375, 230, 150, 150)),
+                        square.Square(window, (25, 405, 150, 150)), square.Square(window, (200, 405, 150, 150)),
+                        square.Square(window, (375, 405, 150, 150))]
         self.__player = player
         self.__window = window
 

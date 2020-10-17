@@ -30,20 +30,15 @@ def create_thread(target, conn):
     thread.start()
 
 
-def hold_connection():
-    global connection, address, sock
-    connection, address = sock.accept()
-    connections.append(connection)
-    print('New connection')
-    receive_data()
-
-# create_thread(hold_connection)
-
-
 while True:
     connection, address = sock.accept()
     print('Connected to: ' + address[0] + ':' + str(address[1]))
     connections.append(connection)
+
+    player_number = '1' if ThreadCount == 0 else '2'
+    player_number = 'player=' + player_number
+    connection.send(player_number.encode())
+
     create_thread(receive_data, connection)
     ThreadCount += 1
     print('Thread Number: ' + str(ThreadCount))
